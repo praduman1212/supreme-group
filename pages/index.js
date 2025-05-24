@@ -1,114 +1,127 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import React, { useState, useEffect } from 'react';
+import FirstPage from '../components/FirstPage';
+import SecondPage from '../components/SecondPage';
+import ThirdPage from '../components/ThirdPage';
+import FourthPage from '../components/FourthPage';
+import FifthPage from '../components/FifthPage';
+import SixthPage from '../components/SixthPage';
+import SeventhPage from '../components/SeventhPage';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const pages = [
+  { id: 1, component: FirstPage },
+  { id: 2, component: SecondPage },
+  { id: 3, component: ThirdPage },
+  { id: 4, component: FourthPage },
+  { id: 5, component: FifthPage },
+  { id: 6, component: SixthPage },
+  { id: 7, component: SeventhPage },
+ 
+];
 
-export default function Home() {
+const Index = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const handlePageClick = () => {
+    if (currentPage < pages.length - 1 && !isTransitioning) {
+      setIsTransitioning(true);
+      setCurrentPage(prev => prev + 1);
+      setTimeout(() => setIsTransitioning(false), 500);
+    }
+  };
+
+  const handleBackToTop = () => {
+    if (!isTransitioning) {
+      setIsTransitioning(true);
+      setCurrentPage(0);
+      setTimeout(() => setIsTransitioning(false), 500);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 0 && !isTransitioning) {
+      setIsTransitioning(true);
+      setCurrentPage(prev => prev - 1);
+      setTimeout(() => setIsTransitioning(false), 500);
+    }
+  };
+
   return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              pages/index.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Previous Page Button - Positioned 10rem above the navigation line */}
+      {currentPage > 0 && (
+        <button
+          onClick={handlePreviousPage}
+          className="fixed left-9 top-[calc(50%-12rem)] transform -translate-x-1/2 z-50 bg-white/10 hover:bg-white/20 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="h-4 w-4" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M5 15l7-7 7 7" 
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </svg>
+        </button>
+      )}
+
+      {/* Navigation Line */}
+      <div className="fixed left-8 top-1/2 transform -translate-y-1/2 w-0.5 h-64 bg-gray-500 z-50">
+        <div 
+          className="w-0.5 bg-white transition-all duration-500"
+          style={{ 
+            height: `${(currentPage / (pages.length - 1)) * 100}%`,
+          }}
+        />
+      </div>
+
+      {/* Back to Top Button */}
+      {currentPage === pages.length - 1 && (
+        <button
+          onClick={handleBackToTop}
+          className="fixed top-8 left-1/2 transform -translate-x-1/2 z-50 bg-white text-black px-6 py-3 rounded-full shadow-lg hover:bg-gray-100 transition-all duration-300 flex items-center gap-2"
+        >
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="h-6 w-6" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M5 15l7-7 7 7" 
+            />
+          </svg>
+          Back to Top
+        </button>
+      )}
+
+      {/* Page Content */}
+      <div 
+        className="w-full h-full transition-transform duration-500"
+        style={{ 
+          transform: `translateY(-${currentPage * 100}%)`,
+        }}
+        onClick={handlePageClick}
+      >
+        {pages.map((page, index) => (
+          <div key={page.id} className="w-full h-screen">
+            <page.component />
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default Index; 
