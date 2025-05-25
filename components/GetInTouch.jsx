@@ -62,10 +62,10 @@ const GetInTouch = () => {
           <div className="w-full md:w-1/2 mb-8 md:mb-0 md:pr-20">
             <h2 className="text-4xl font-semibold mb-8 leading-none align-middle">Get in touch</h2>
             <div className="h-0.5 w-[48px] bg-[#ffffff]"></div> {/* Underline */}
-            <p className="text-2xl font-normal mb-10 mt-10 leading-tight align-middle">For general enquiries</p>
-            <p className="mb-4"><strong className="font-semibold text-xl leading-4 align-middle">Address :</strong> <span className="mt-2 font-normal text-lg leading-4 align-middle whitespace-nowrap">110, 16th Road, Chembur, Mumbai - 400071</span></p>
-            <p className="mb-4"><strong className="font-semibold text-xl leading-4 align-middle">Phone :</strong> <br /> <span className="mt-2 font-normal text-lg leading-4 align-middle">+91 22 25208822</span></p>
-            <p className="mb-4"><strong className="font-semibold text-xl leading-4 align-middle">Email :</strong> <br /> <span className="mt-2 font-normal text-lg leading-4 align-middle">info@supremegroup.co.in</span></p>
+            <p className="text-xl font-normal mb-10 mt-10 leading-tight align-middle">For general enquiries</p>
+            <p className="mb-4"><strong className="font-semibold text-lg leading-4 align-middle">Address :</strong> <span className="mt-2 font-normal text-base leading-4 align-middle whitespace-nowrap">110, 16th Road, Chembur, Mumbai - 400071</span></p>
+            <p className="mb-4"><strong className="font-semibold text-lg leading-4 align-middle">Phone :</strong> <br /> <span className="mt-2 font-normal text-base leading-4 align-middle">+91 22 25208822</span></p>
+            <p className="mb-4"><strong className="font-semibold text-lg leading-4 align-middle">Email :</strong> <br /> <span className="mt-2 font-normal text-base leading-4 align-middle">info@supremegroup.co.in</span></p>
           </div>
 
           {/* Right Section: Form */}
@@ -117,7 +117,7 @@ const GetInTouch = () => {
               </div>
               <button
                 type="submit"
-                className="bg-white text-[#000000] py-2 px-10 rounded-full hover:bg-gray-200"
+                className="bg-[#ffffff] text-[#000000] border-[#00BFFF] border-2 py-2 px-10 rounded-full hover:bg-gray-200"
                 disabled={isLoading}
               >
                 {isLoading ? 'Sending...' : 'Send'}
