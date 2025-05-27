@@ -43,7 +43,7 @@ const FourthPage = () => {
       <div className="w-full flex flex-col items-center pt-4 sm:pt-6 md:pt-8">
         {/* Heading with exact properties */}
         <div className="w-full flex justify-center px-4">
-          <span className="block font-manrope font-light text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[1.2] tracking-[-0.5px] text-center text-white w-full max-w-[778.24px]">
+          <span className="block font-manrope font-light text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] leading-[1.2] tracking-[-0.5px] text-center text-[#ffffff] w-full max-w-[778.24px]">
             Evolving the drive with <b className="font-semibold">360-degree</b><br className="hidden sm:block" />nonwoven solutions
           </span>
         </div>
@@ -55,7 +55,7 @@ const FourthPage = () => {
           {/* Section Titles */}
           <div className="text-center md:text-left flex justify-center md:justify-start">
   <div className="mb-8 sm:mb-12 md:mb-16 lg:mb-24 px-4 sm:px-6 md:px-0 max-w-[360px]">
-    <h2 className="text-white text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold font-montserrat leading-tight">
+    <h2 className="text-[#ffffff] text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold font-montserrat leading-tight">
       Passenger vehicles
     </h2>
     <p className="text-gray-300 text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] font-montserrat mt-2 sm:mt-3 leading-relaxed">
@@ -72,7 +72,7 @@ const FourthPage = () => {
             className={`relative w-[280px] h-[160px] sm:w-[340px] sm:h-[200px] md:w-[480px] md:h-[270px] lg:w-[600px] lg:h-[340px] mb-8 transition-all duration-1000 ${isVisible ? 'animate-fadeInScale' : 'opacity-0 scale-95 translate-x-12'}`}
           >
             <Image
-              src="/image1.png"
+              src="/Front.svg"
               alt="Car"
               layout="fill"
               objectFit="contain"
@@ -85,7 +85,7 @@ const FourthPage = () => {
       {/* Bottom Row */}
       <div className="w-full flex flex-col md:flex-row items-end md:items-center justify-end px-4 md:px-16 pb-4 gap-4 mt-2 relative overflow-hidden">
         {/* Pause Button */}
-        <div className="absolute bottom-10 right-6 animate-fadeInScale">
+        <div className="absolute bottom-10 right-6 animate-fadeInScale hidden sm:block">
           <div className="w-6 h-6 sm:w-8 sm:h-8 relative">
             <Image
               src="/pause-button.png"
@@ -99,60 +99,52 @@ const FourthPage = () => {
         {/* Center: Icon Row */}
         <div className="flex flex-row items-center gap-2 md:gap-2 mb-4 md:mr-24 ml-auto overflow-x-auto md:overflow-visible">
           {/* Icon items */}
-          <div className="flex flex-col items-center min-w-[60px]">
-            <div className="w-8 h-5 sm:w-10 sm:h-6 relative">
+          <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
+            <div className="w-8 h-5 sm:w-10 sm:h-6 md:w-12 md:h-8 lg:w-14 lg:h-10 relative opacity-30">
               <Image
-                src="/image1.png"
+                src="/1.svg"
                 alt="Complete Body"
                 layout="fill"
                 objectFit="contain"
               />
             </div>
-            <span className="text-white text-[10px] sm:text-xs mt-1">Complete Body</span>
+            <span className="text-[#ffffff] text-[10px] sm:text-xs md:text-[12px] lg:text-sm mt-1 md:mt-2 opacity-30">Complete Body</span>
           </div>
-          <div className="flex flex-col items-center opacity-30 min-w-[60px]">
-            <div className="w-8 h-5 sm:w-10 sm:h-6 relative">
+          <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
+            <div className="w-8 h-5 sm:w-10 sm:h-6 md:w-12 md:h-8 lg:w-14 lg:h-10 relative">
               <Image
-                src="/image1.png"
+                src="/2-2.svg"
                 alt="Front"
                 layout="fill"
                 objectFit="contain"
               />
             </div>
-            <span className="text-white text-[10px] sm:text-xs mt-1">Front</span>
+            <span className="text-[#ffffff] text-[10px] sm:text-xs md:text-[12px] lg:text-sm mt-1 md:mt-2">Front</span>
           </div>
-          <div className="flex flex-col items-center opacity-30 min-w-[60px]">
-            <div className="w-8 h-5 sm:w-10 sm:h-6 relative">
-              <Image
-                src="/image1.png"
-                alt="Cabin"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-            <span className="text-white text-[10px] sm:text-xs mt-1">Cabin</span>
+          <div className="flex flex-col items-center opacity-30 min-w-[60px] md:min-w-[80px]">
+            <span className="text-[#ffffff] text-[10px] sm:text-xs md:text-[12px] lg:text-sm mt-7 md:mt-12">Cabin</span>
           </div>
-          <div className="flex flex-col items-center opacity-30 min-w-[60px]">
-            <div className="w-8 h-5 sm:w-10 sm:h-6 relative">
+          <div className="flex flex-col items-center opacity-30 min-w-[60px] md:min-w-[80px]">
+            <div className="w-8 h-5 sm:w-10 sm:h-6 md:w-12 md:h-8 lg:w-14 lg:h-10 relative">
               <Image
-                src="/image1.png"
+                src="/3.svg"
                 alt="Trunk"
                 layout="fill"
                 objectFit="contain"
               />
             </div>
-            <span className="text-white text-[10px] sm:text-xs mt-1">Trunk</span>
+            <span className="text-[#ffffff] text-[10px] sm:text-xs md:text-[12px] lg:text-sm mt-1 md:mt-2">Trunk</span>
           </div>
-          <div className="flex flex-col items-center opacity-30 min-w-[60px]">
-            <div className="w-8 h-5 sm:w-10 sm:h-6 relative">
+          <div className="flex flex-col items-center opacity-30 min-w-[60px] md:min-w-[80px]">
+            <div className="w-8 h-5 sm:w-10 sm:h-6 md:w-12 md:h-8 lg:w-14 lg:h-10 relative">
               <Image
-                src="/image1.png"
+                src="/4.svg"
                 alt="Exterior"
                 layout="fill"
                 objectFit="contain"
               />
             </div>
-            <span className="text-white text-[10px] sm:text-xs mt-1">Exterior</span>
+            <span className="text-[#ffffff] text-[10px] sm:text-xs md:text-[12px] lg:text-sm mt-1 md:mt-2">Exterior</span>
           </div>
         </div>
       </div>

@@ -72,7 +72,7 @@ const ThirdPage = () => {
             className={`relative w-[280px] h-[160px] sm:w-[340px] sm:h-[200px] md:w-[480px] md:h-[270px] lg:w-[600px] lg:h-[340px] mb-8 transition-all duration-1000 ${isVisible ? 'animate-fadeInScale' : 'opacity-0 scale-95 translate-x-12'}`}
           >
             <Image
-              src="/image1.png"
+              src="/truck.svg"
               alt="Car"
               layout="fill"
               objectFit="contain"
