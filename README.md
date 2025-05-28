@@ -13,7 +13,7 @@ This is a modern web application built with Next.js, featuring a responsive desi
 ## What I have done differently in this
 
 ### 1. Enhanced Navigation
-- Added a "Back" button for improved user navigation
+- Added a "^" button for improved user navigation
 - Implemented smooth transitions between pages
 - Enhanced user experience with intuitive navigation controls
 
